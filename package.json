@@ -1,0 +1,22 @@
+{
+  "name": "invo-be",
+  "version": "1.0.0",
+  "description": "The backend for my invo html app (development).",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node listen.js",
+    "dev": "nodemon listen.js"
+  },
+  "author": "gmharper",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongodb": "^7.5.0",
+    "pg": "^8.20.0",
+    "pg-format": "^1.0.4",
+    "zod": "^4.4.3"
+  }
+}

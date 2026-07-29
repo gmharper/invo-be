@@ -1,0 +1,25 @@
+{
+  "GET /api": {
+    "description": "serves up a json representation of all the available endpoints of the api"
+  },
+
+  "GET /api/users/:userId": {
+    "description": ""
+  },
+
+  "GET /api/inventories/:inventoryId": {
+    "description": ""
+  },
+
+  "GET /api/items/:itemId": {
+    "description": ""
+  },
+
+  "GET /api/machines/:machineId": {
+    "description": ""
+  },
+
+  "GET /api/workflows/:workflowId": {
+    "description": ""
+  },
+};
