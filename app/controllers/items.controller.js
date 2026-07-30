@@ -1,12 +1,18 @@
-import { connectDB } from '../../db/connection';
+import { connectDB } from '../../db/connection.js';
 import { z } from "zod";
+import { ItemZSchema } from '../schema/item.schema.js';
 
 import {
-    getItems, getItem, postItem, patchItem, clearItem, deleteItem
-} from "../models";
+    getItems, 
+    getItem, 
+    postItem, 
+    patchItem, 
+    clearItem, 
+    deleteItem
+} from "../models/index.js";
 
 export async function getItemsController(req, res, next) {
-  const Queries = ["topic", "author", "sort", "order", "p", "limit", "only"]; // valid queries
+  const Queries = ["author", "sort", "order", "p", "limit", "only"]; // valid queries
 
   for (const key in req.query) {
     if (!Queries.includes(key)) {
@@ -36,14 +42,26 @@ export async function getItemController(req, res, next) {
 
 
 export async function postItemController(req, res, next) {
-    return postItem()
+    const { itemId } = req.params();
+    const data = req.body;
+
+    const parsed = ItemZSchema.parse(data);
+
+    return postItem();
 };
 
 export async function patchItemController(req, res, next) {
-    return patchItem()
+    const { itemId } = req.params();
+    const data = req.body;
+
+    const parsed = ItemZSchema.parse(data);
+
+    return patchItem(itemId, );
 };
 
 
 export async function deleteItemController(req, res, next) {
-    return deleteItem()
+    const { itemId } = req.params();
+
+    return deleteItem(itemId);
 };

@@ -2,7 +2,7 @@ import express from "express";
 const app = express();
 import cors from 'cors';
 
-import apiRouter from "./routers/apiRouter";
+import apiRouter from "./routers/apiRouter.js";
 
 app.use(express.json())
 app.use(cors());

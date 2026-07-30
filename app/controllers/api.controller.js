@@ -1,5 +1,5 @@
-import endpoints from "../../endpoints.json";
+import endpoints from "../../endpoints.json" with { type: "json" };
 
-export default async function getApi(request, response) {
-  response.status(200).send(endpoints);
+export default async function getApi(req, res) {
+  res.status(200).send(endpoints);
 };

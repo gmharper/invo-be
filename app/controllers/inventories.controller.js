@@ -1,10 +1,16 @@
-import { connectDB } from '../../db/connection';
+import { connectDB } from '../../db/connection.js';
 
 import { z } from "zod";
+import { InventoryZSchema } from '../schema/inventory.schema.js';
 
 import {
-    getInventories, getInventory, postInventory, patchInventory, clearInventory, deleteInventory
-} from "../models";
+    getInventories, 
+    getInventory, 
+    postInventory, 
+    patchInventory, 
+    clearInventory, 
+    deleteInventory
+} from "../models/index.js";
 
 export async function getInventoriesController(req, res, next) {
   const Queries = ["topic", "author", "sort", "order", "p", "limit", "only"]; // valid queries
@@ -37,14 +43,26 @@ export async function getInventoryController(req, res, next) {
 
 
 export async function postInventoryController(req, res, next) {
-    return postInventory()
+    const { inventoryId } = req.params;
+    const data = req.body;
+
+    const parsed = InventoryZSchema.parse(data);
+
+    return postInventory(inventoryId);
 };
 
 export async function patchInventoryController(req, res, next) {
-    return patchInventory()
+    const { inventoryId } = req.params;
+    const data = req.body;
+
+    const parsed = InventoryZSchema.parse(data);
+
+    return patchInventory(inventoryId);
 };
 
 
 export async function deleteInventoryController(req, res, next) {
-    return deleteInventory()
+    const { inventoryId } = req.params;
+
+    return deleteInventory(inventoryId);
 };

@@ -3,23 +3,133 @@
     "description": "serves up a json representation of all the available endpoints of the api"
   },
 
-  "GET /api/users/:userId": {
-    "description": ""
+  "/api/users": {
+    "GET": {
+      "queries": ["sort", "order", "limit", "p"],
+      "sorts": [],
+      "orders": ["ascending", "asc", "descending", "desc", "1", "-1"],
+      "description": "Returns a list of users sorted and filtered by queries (limit of 60)."
+    },
+    "POST": {
+      "required": ["_id", "name", "author", "createdAt"],
+      "example": {},
+      "description": "Posts a new user to the user collection from a provided data object that contains the required keys (and which are valid) (extra valid keys may also be provided)."
+    }
+  },
+  "/api/users/:userId": {
+    "GET": {
+      "description": "Returns a user by their id."
+    },
+    "PATCH": {
+      "description": "Patches/Updates a user by their id from a provided data object containing keys that exist on the user class."
+    },
+    "DELETE": {
+      "description": "Deletes a user by their id from the users collection."
+    }
   },
 
-  "GET /api/inventories/:inventoryId": {
-    "description": ""
+  "/api/inventories": {
+    "GET": {
+      "queries": ["sort", "order", "limit", "p"],
+      "sorts": [],
+      "orders": ["ascending", "asc", "descending", "desc", "1", "-1"],
+      "description": "Returns a list of inventories sorted and filtered by queries (limit of 60)."
+    },
+    "POST": {
+      "required": ["_id", "name", "author", "createdAt"],
+      "example": {},
+      "description": "Posts a new inventory to the inventories collection from a provided data object that has the required keys (and which are valid) (extra valid keys may also be provided)."
+    }
+  },
+  "/api/inventories/:inventoryId": {
+    "GET": {
+      "description": "Returns an inventory by its id.",
+      "example_response": {}
+    },
+    "PATCH": {
+      "description": "Patches/Updates an inventory by its id from a provided data object containing keys that exist on the inventory class."
+    },
+    "DELETE": {
+      "description": "Deletes an inventory by its id from the inventories collection."
+    }
   },
 
-  "GET /api/items/:itemId": {
-    "description": ""
+  "/api/items": {
+    "GET": {
+      "queries": ["sort", "order", "limit", "p"],
+      "sorts": [],
+      "order": ["ascending", "asc", "descending", "desc", "1", "-1"],
+      "description": "Returns a list of items sorted and filtered by queries (limit of 60)."
+    },
+    "POST": {
+      "required": ["_id", "name", "author", "createdAt"],
+      "example": {},
+      "description": "Posts a new item to the items collection from a provided data object that has the required keys (and which are valid) (extra valid keys may also be provided)."
+    }
+  },
+  "/api/items/:itemId": {
+    "GET": {
+      "description": "Returns an item by its id.",
+      "example_response": {}
+    },
+    "PATCH": {
+      "description": "Patches/Updates an item by its id from a provided data object containing keys that exist on the item class."
+    },
+    "DELETE": {
+      "description": "Deletes an item by its id from the items collection."
+    }
   },
 
-  "GET /api/machines/:machineId": {
-    "description": ""
+  "/api/machines": {
+    "GET": {
+      "queries": ["sort", "order", "limit", "p"],
+      "sorts": [],
+      "orders": ["ascending", "asc", "descending", "desc", "1", "-1"],
+      "description": "Returns a list of machines sorted and filtered by queries (limit of 60)."
+    },
+    "POST": {
+      "required": ["_id", "name", "author", "createdAt"],
+      "example": {},
+      "description": "Posts a new machine to the machines collection from a provided data object that has the required keys (and which are valid) (extra valid keys may also be provided)."
+    }
+  },
+  "/api/machines/:machineId": {
+    "GET": {
+      "description": "Returns a machine by its id.",
+      "example_response": {}
+    },
+    "PATCH": {
+      "description": "Patches/Updates a machine by its id from a provided data object containing keys that exist on the machine class."
+    },
+    "DELETE": {
+      "description": "Deletes a machine by its id from the machines collection."
+    }
   },
 
-  "GET /api/workflows/:workflowId": {
-    "description": ""
+  "/api/workflows": {
+    "GET": {
+      "queries": ["sort", "order", "limit", "p"],
+      "sorts": [],
+      "orders": ["ascending", "asc", "descending", "desc", "1", "-1"],
+      "description": "Returns a list of workflows sorted and filtered by queries (limit of 60)."
+    },
+    "POST": {
+      "required": ["_id", "name", "author", "createdAt"],
+      "example": {},
+      "description": "Posts a new workflow to the workflows collection from a provided data object that has the required keys (and which are valid) (extra valid keys may also be provided)."
+    }
   },
-};
+
+  "/api/workflows/:workflowId": {
+    "GET": {
+      "description": "Returns a workflow by its id.",
+      "example_response": {}
+    },
+    "PATCH": {
+      "description": "Patches/Updates a workflow by its id from a provided data object containing keys that exist on the workflow class."
+    },
+    "DELETE": {
+      "description": "Deletes a workflow by its id from the workflows collection."
+    }
+  }
+}

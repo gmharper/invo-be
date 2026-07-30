@@ -1,0 +1,49 @@
+/// TESTING
+
+// USERS
+/users
+    get() + queries
+    post()
+/users/:userId
+    get()
+    patch()
+    delete()
+
+
+// INVENTORIES
+/inventories
+    get() + queries
+    post()
+/inventories/:inventoryId
+    get()
+    patch()
+    delete()
+
+
+// ITEMS
+/items
+    get() + queries
+    post()
+/items/:itemId
+    get()
+    patch()
+    delete()
+
+
+// MACHINES
+/machines
+    get() + queries
+    post()
+/machines/:machineId
+    get()
+    patch()
+    delete()
+
+
+// WORKFLOWS
+/workflows
+    get() + queries
+/workflows/:workflowId
+    get()
+    patch()
+    delete()
