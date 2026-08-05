@@ -27,7 +27,7 @@ export async function getUsersController(req, res, next) {
 
     if (p < 0) return res.status(400).send({ err_msg: "" });
 
-    return getUsers(sort, order, Math.min(60, limit), Math.max(0, p))
+    return getUsers({ sort:sort ?? "_id", order:order ?? 1, limit:limit ?? 60, p:p ?? 0 })
         .then((data) => {
         if (!data) return res.status(404).send({ err_msg: "404: Not Found" });
         else return res.status(200).send({ data })

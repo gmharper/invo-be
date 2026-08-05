@@ -3,6 +3,7 @@ const app = express();
 import cors from 'cors';
 
 import apiRouter from "./routers/apiRouter.js";
+import connectDB from "../db/connection.js";
 
 app.use(express.json())
 app.use(cors());
@@ -26,5 +27,7 @@ app.use((err, req, res, next) => {
   console.log(err);
   res.status(500).send({ msg: "Internal server error" });
 });
+
+connectDB();
 
 export default app;
