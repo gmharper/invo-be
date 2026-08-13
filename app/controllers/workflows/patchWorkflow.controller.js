@@ -1,6 +1,9 @@
+// MODELS
 import { patchWorkflow } from "../../models";
-import { WorkflowZSchema } from "../../schema/workflow.schema";
-import { ObjectIdSchema } from "../../schema/z";
+
+// SCHEMA
+import { WorkflowZSchema } from "../../schema/workflow.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export default async function patchWorkflowController(req, res, next) {
     const { workflowId } = req.params;

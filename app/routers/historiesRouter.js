@@ -3,7 +3,7 @@ import express from "express";
 import { 
     getHistoryController, 
     patchHistoryController
-} from "../controllers/history.controller";
+} from "../controllers/history.controller.js";
 
 export const historiesRouter = express.Router();
 

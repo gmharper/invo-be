@@ -1,6 +1,9 @@
+// MODELS
 import { postDashboardTab } from "../../models/dashboardTabs.model.js";
-import { History } from "../../schema/historyEntry.schema";
-import { DashboardTabZSchema } from "../../schema/dashboardTab.schema";
+
+// SCHEMA
+import { History } from "../../schema/historyEntry.schema.js";
+import { DashboardTabZSchema } from "../../schema/dashboardTab.schema.js";
 import { ObjectId } from "mongodb";
 
 export async function postDashboardTabController(req, res, next) {

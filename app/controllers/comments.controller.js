@@ -1,7 +1,4 @@
-import { z } from "zod";
-import { CommentZSchema } from "../schema/commentEntry.schema.js";
-import { queryValidationSchema } from '../schema/queryValidation.schema.js';
-
+// MODELS
 import { 
     getComments,
     getComment,
@@ -9,7 +6,12 @@ import {
     patchComment,
     deleteComment
 } from "../models/comments.model.js";
+
+// SCHEMA
+import { CommentZSchema } from "../schema/commentEntry.schema.js";
+import { queryValidationSchema } from '../schema/queryValidation.schema.js';
 import { ObjectIdSchema } from "../schema/z.js";
+
 
 export async function getCommentsController(req, res, next) {
     const parsed = queryValidationSchema.safeParse(req.query);

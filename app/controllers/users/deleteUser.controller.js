@@ -1,11 +1,14 @@
+// MODELS
 import { deleteUser } from "../../models";
-import { History } from "../../schema/historyEntry.schema";
-import { Inventory } from "../../schema/inventory.schema";
-import { Item } from "../../schema/item.schema";
-import { Machine } from "../../schema/machine.schema";
-import { UserPreferences } from "../../schema/userPreferences.schema";
-import { Workflow } from "../../schema/workflow.schema";
-import { ObjectIdSchema } from "../../schema/z";
+
+// SCHEMA
+import { Inventory } from "../../schema/inventory.schema.js";
+import { Item } from "../../schema/item.schema.js";
+import { Machine } from "../../schema/machine.schema.js";
+import { Workflow } from "../../schema/workflow.schema.js";
+import { UserPreferences } from "../../schema/userPreferences.schema.js";
+import { History } from "../../schema/historyEntry.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export default async function deleteUserController(req, res, next) {
     const { userId } = req.params;

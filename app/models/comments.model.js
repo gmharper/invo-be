@@ -1,4 +1,4 @@
-import { Comment } from "../schema/commentEntry.schema";
+import { Comment } from "../schema/commentEntry.schema.js";
 
 export async function getComments(props) {
     const total = await Comment.countDocuments();

@@ -1,6 +1,9 @@
+// MODELS
 import { patchUser } from "../../models";
-import { UserZSchema } from "../../schema/user.schema";
-import { ObjectIdSchema } from "../../schema/z";
+
+// SCHEMA
+import { UserZSchema } from "../../schema/user.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export default async function patchUserController(req, res, next) {
     const { userId } = req.params;

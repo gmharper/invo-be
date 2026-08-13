@@ -1,6 +1,9 @@
-import { getDashboardTabs, getDashboardTab } from "../../models/dashboardTabs.model";
-import { queryValidationSchema } from "../../schema/queryValidation.schema";
-import { ObjectIdSchema } from "../../schema/z";
+// MODELS
+import { getDashboardTabs, getDashboardTab } from "../../models/dashboardTabs.model.js";
+
+// SCHEMA
+import { queryValidationSchema } from "../../schema/queryValidation.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export async function getDashboardTabsController(req, res, next) {
     const parsed = queryValidationSchema.safeParse(req.query);

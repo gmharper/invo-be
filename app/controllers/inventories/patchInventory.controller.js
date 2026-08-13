@@ -1,6 +1,9 @@
+// MODELS
 import { patchInventory } from "../../models";
-import { InventoryZSchema } from "../../schema/inventory.schema";
-import { ObjectIdSchema } from "../../schema/z";
+
+// SCHEMA
+import { InventoryZSchema } from "../../schema/inventory.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export default async function patchInventoryController(req, res, next) {
     const { inventoryId } = req.params;

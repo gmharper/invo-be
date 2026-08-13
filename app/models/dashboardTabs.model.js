@@ -1,4 +1,4 @@
-import { DashboardTab } from "../schema/dashboardTab.schema";
+import { DashboardTab } from "../schema/dashboardTab.schema.js";
 
 export async function getDashboardTabs() {
     const total = await DashboardTab.countDocuments();

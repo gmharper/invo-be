@@ -1,7 +1,7 @@
-import { getItemsController, getItemController } from "./getItem.controller";
-import { postItemController } from "./postItem.controller";
-import { patchItemController } from "./patchItem.controller";
-import { deleteItemController } from "./deleteItem.controller";
+import { getItemsController, getItemController } from "./getItem.controller.js";
+import { postItemController } from "./postItem.controller.js";
+import { patchItemController } from "./patchItem.controller.js";
+import { deleteItemController } from "./deleteItem.controller.js";
 
 export {
     getItemsController, getItemController,

@@ -1,7 +1,10 @@
-import { ObjectId } from "mongodb";
+// MODELS
 import { postInventory } from "../../models";
-import { History } from "../../schema/historyEntry.schema";
-import { InventoryZSchema } from "../../schema/inventory.schema";
+
+// SCHEMA
+import { History } from "../../schema/historyEntry.schema.js";
+import { InventoryZSchema } from "../../schema/inventory.schema.js";
+import { ObjectId } from "mongodb";
 
 export default async function postInventoryController(req, res, next) {
     const data = req.body;

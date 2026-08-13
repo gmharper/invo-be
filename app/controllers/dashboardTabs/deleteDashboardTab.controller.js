@@ -1,7 +1,10 @@
-import { deleteDashboardTab } from "../../models/dashboardTabs.model";
-import { User } from "../../schema/user.schema";
-import { History } from "../../schema/historyEntry.schema";
-import { ObjectIdSchema } from "../../schema/z";
+// MODELS
+import { deleteDashboardTab } from "../../models/dashboardTabs.model.js";
+
+// SCHEMA
+import { User } from "../../schema/user.schema.js";
+import { History } from "../../schema/historyEntry.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export async function deleteDashboardTabController(req, res, next) {
     const { id } = req.params;

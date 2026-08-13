@@ -1,6 +1,6 @@
-import { queryValidationSchema } from "../../schema/queryValidation.schema";
+import { queryValidationSchema } from "../../schema/queryValidation.schema.js";
 import { getInventories, getInventory } from "../../models";
-import { ObjectIdSchema } from "../../schema/z";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export async function getInventoriesController(req, res, next) {
     const parsed = queryValidationSchema.safeParse(req.query);

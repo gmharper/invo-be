@@ -1,6 +1,9 @@
+// MODELS
 import { patchMachine } from "../../models";
-import { MachineZSchema } from "../../schema/machine.schema";
-import { ObjectIdSchema } from "../../schema/z";
+
+//SCHEMA
+import { MachineZSchema } from "../../schema/machine.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export async function patchMachineController(req, res, next) {
     const { machineId } = req.params;

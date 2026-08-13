@@ -1,6 +1,6 @@
-import { patchDashboardTab } from "../../models/dashboardTabs.model";
-import { DashboardTabZSchema } from "../../schema/dashboardTab.schema";
-import { ObjectIdSchema } from "../../schema/z";
+import { patchDashboardTab } from "../../models/dashboardTabs.model.js";
+import { DashboardTabZSchema } from "../../schema/dashboardTab.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export async function patchDashboardTabController(req, res, next) {
     const { id } = req.params;

@@ -1,7 +1,10 @@
+// MODELS
 import { postUser } from "../../models";
-import { UserPreferences, defaultUserPreferences } from "../../schema/userPreferences.schema";
-import { History } from "../../schema/historyEntry.schema";
-import { UserZSchema } from "../../schema/user.schema";
+
+// SCHEMA
+import { UserPreferences, defaultUserPreferences } from "../../schema/userPreferences.schema.js";
+import { History } from "../../schema/historyEntry.schema.js";
+import { UserZSchema } from "../../schema/user.schema.js";
 import { ObjectId } from "mongodb";
 
 export default async function postUserController(req, res, next) {

@@ -1,7 +1,7 @@
-import { getUserController, getUsersController } from "./getUser.controller";
-import postUserController from "./postUser.controller";
-import patchUserController from "./patchUser.controller";
-import deleteUserController from "./deleteUser.controller";
+import { getUserController, getUsersController } from "./getUser.controller.js";
+import postUserController from "./postUser.controller.js";
+import patchUserController from "./patchUser.controller.js";
+import deleteUserController from "./deleteUser.controller.js";
 
 export {
     getUserController, getUsersController,

@@ -1,7 +1,10 @@
-import { ObjectId } from "mongodb";
+// MODELS
 import { postItem } from "../../models";
-import { History } from "../../schema/historyEntry.schema";
-import { ItemZSchema } from "../../schema/item.schema";
+
+// SCHEMA
+import { ObjectId } from "mongodb";
+import { History } from "../../schema/historyEntry.schema.js";
+import { ItemZSchema } from "../../schema/item.schema.js";
 
 export async function postItemController(req, res, next) {
     const data = req.body;

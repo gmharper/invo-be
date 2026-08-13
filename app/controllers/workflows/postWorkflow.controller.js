@@ -1,7 +1,10 @@
-import { ObjectId } from "mongodb";
+// MODELS
 import { postWorkflow } from "../../models";
-import { History } from "../../schema/historyEntry.schema";
-import { WorkflowZSchema } from "../../schema/workflow.schema";
+
+// SCHEMA
+import { History } from "../../schema/historyEntry.schema.js";
+import { WorkflowZSchema } from "../../schema/workflow.schema.js";
+import { ObjectId } from "mongodb";
 
 export default async function postWorkflowController(req, res, next) {
     const data = req.body;

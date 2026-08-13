@@ -1,4 +1,4 @@
-import { History } from "../schema/historyEntry.schema";
+import { History } from "../schema/historyEntry.schema.js";
 
 export async function getHistory(id, useRef=false) {
     let history;

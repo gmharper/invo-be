@@ -1,7 +1,10 @@
-import { ObjectId } from "mongodb";
+// MODELS
 import { postMachine } from "../../models";
-import { History } from "../../schema/historyEntry.schema";
-import { MachineZSchema } from "../../schema/machine.schema";
+
+// SCHEMA
+import { History } from "../../schema/historyEntry.schema.js";
+import { MachineZSchema } from "../../schema/machine.schema.js";
+import { ObjectId } from "mongodb";
 
 export async function postMachineController(req, res, next) {
     const data = req.body;

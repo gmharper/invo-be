@@ -1,8 +1,11 @@
+// MODELS
 import { deleteWorkflow } from "../../models";
-import { Comment } from "../../schema/commentEntry.schema";
-import { History } from "../../schema/historyEntry.schema";
-import { User } from "../../schema/user.schema";
-import { ObjectIdSchema } from "../../schema/z";
+
+// SCHEMA
+import { Comment } from "../../schema/commentEntry.schema.js";
+import { History } from "../../schema/historyEntry.schema.js";
+import { User } from "../../schema/user.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export default async function deleteWorkflowController(req, res, next) {
     const { workflowId } = req.params;

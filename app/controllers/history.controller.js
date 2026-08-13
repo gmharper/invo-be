@@ -1,6 +1,9 @@
-import { getHistory, appendHistory, trimHistory } from "../models/histories.model";
-import { HistoryEntryZSchema } from "../schema/historyEntry.schema";
-import { ObjectIdSchema } from "../schema/z";
+// MODELS
+import { getHistory, appendHistory, trimHistory } from "../models/histories.model.js";
+
+// SCHEMA
+import { HistoryEntryZSchema } from "../schema/historyEntry.schema.js";
+import { ObjectIdSchema } from "../schema/z.js";
 
 export async function getHistoryByRef(req, res, next) {
     const { refId } = req.params;

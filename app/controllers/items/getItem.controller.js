@@ -1,6 +1,9 @@
+// MODELS
 import { getItems, getItem } from "../../models";
-import { queryValidationSchema } from "../../schema/queryValidation.schema";
-import { ObjectIdSchema } from "../../schema/z";
+
+// SCHEMA
+import { queryValidationSchema } from "../../schema/queryValidation.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export async function getItemsController(req, res, next) {
     const parsed = queryValidationSchema.safeParse(req.query);

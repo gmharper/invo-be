@@ -3,7 +3,7 @@ import express from "express";
 import {
     getUserPreferencesController,
     patchUserPreferencesController
-} from "../controllers/userPreferences.controller";
+} from "../controllers/userPreferences.controller.js";
 
 export const preferencesRouter = express.Router();
 

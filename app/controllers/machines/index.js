@@ -1,7 +1,7 @@
-import { getMachinesController, getMachineController } from "./getMachine.controller";
-import { postMachineController } from "./postMachine.controller";
-import { patchMachineController } from "./patchMachine.controller";
-import { deleteMachineController } from "./deleteMachine.controller";
+import { getMachinesController, getMachineController } from "./getMachine.controller.js";
+import { postMachineController } from "./postMachine.controller.js";
+import { patchMachineController } from "./patchMachine.controller.js";
+import { deleteMachineController } from "./deleteMachine.controller.js";
 
 export {
     getMachinesController, getMachineController,

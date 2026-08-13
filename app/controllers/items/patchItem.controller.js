@@ -1,6 +1,9 @@
+// MODELS
 import { patchItem } from "../../models";
-import { ItemZSchema } from "../../schema/item.schema";
-import { ObjectIdSchema } from "../../schema/z";
+
+// SCHEMA
+import { ItemZSchema } from "../../schema/item.schema.js";
+import { ObjectIdSchema } from "../../schema/z.js";
 
 export async function patchItemController(req, res, next) {
     const { itemId } = req.params;
