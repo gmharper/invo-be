@@ -1,5 +1,8 @@
-import { queryValidationSchema } from "../../schema/queryValidation.schema.js";
+// MODELS
 import { getInventories, getInventory } from "../../models/index.js";
+
+// SCHEMA
+import { queryValidationSchema } from "../../schema/queryValidation.schema.js";
 import { ObjectIdSchema } from "../../schema/z.js";
 
 export async function getInventoriesController(req, res, next) {

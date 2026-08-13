@@ -1,5 +1,5 @@
 import z from "zod";
-import { ObjectIdSchema } from "./z";
+import { ObjectIdSchema } from "./z.js";
 
 export const queryValidationSchema = z.object({
     author: ObjectIdSchema.nullable().default(null),

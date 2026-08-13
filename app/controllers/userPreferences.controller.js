@@ -1,8 +1,10 @@
+// MODELS
 import {
     getUserPreferences,
     patchUserPreferences
 } from "../models/userPreferences.model.js";
 
+// SCHEMA
 import { UserPreferencesZSchema } from "../schema/userPreferences.schema.js";
 import { ObjectIdSchema } from "../schema/z.js";
 

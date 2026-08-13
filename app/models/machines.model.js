@@ -1,8 +1,5 @@
 import { Machine } from '../schema/machine.schema.js';
 
-// WE MUST delete certain keys from the user object before returning for example:
-// passwordHash
-
 export async function getMachines(props) {
     const total = await Machine.countDocuments();
 

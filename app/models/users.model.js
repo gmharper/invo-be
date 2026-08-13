@@ -1,8 +1,4 @@
-import { db } from '../api.js';
 import { User } from '../schema/user.schema.js';
-
-// WE MUST delete certain keys from the user object before returning for example:
-// passwordHash
 
 export async function getUsers(props) {
     const total = await User.countDocuments();

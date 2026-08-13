@@ -1,4 +1,7 @@
+// MODELS
 import { patchDashboardTab } from "../../models/dashboardTabs.model.js";
+
+// SCHEMA
 import { DashboardTabZSchema } from "../../schema/dashboardTab.schema.js";
 import { ObjectIdSchema } from "../../schema/z.js";
 
