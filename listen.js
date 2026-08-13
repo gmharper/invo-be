@@ -1,4 +1,4 @@
-import app from "./app/api.js";
+import { app } from "./app/api.js";
 const { PORT = 9090 } = process.env;
 
 app.listen(PORT, () => {
