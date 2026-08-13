@@ -1,5 +1,5 @@
 // MODELS
-import { postInventory } from "../../models";
+import { postInventory } from "../../models/index.js";
 
 // SCHEMA
 import { History } from "../../schema/historyEntry.schema.js";

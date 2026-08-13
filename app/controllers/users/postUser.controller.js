@@ -1,5 +1,5 @@
 // MODELS
-import { postUser } from "../../models";
+import { postUser } from "../../models/index.js";
 
 // SCHEMA
 import { UserPreferences, defaultUserPreferences } from "../../schema/userPreferences.schema.js";

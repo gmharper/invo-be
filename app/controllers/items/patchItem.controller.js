@@ -1,5 +1,5 @@
 // MODELS
-import { patchItem } from "../../models";
+import { patchItem } from "../../models/index.js";
 
 // SCHEMA
 import { ItemZSchema } from "../../schema/item.schema.js";

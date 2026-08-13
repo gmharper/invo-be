@@ -1,5 +1,5 @@
 // MODELS
-import { patchUser } from "../../models";
+import { patchUser } from "../../models/index.js";
 
 // SCHEMA
 import { UserZSchema } from "../../schema/user.schema.js";

@@ -1,5 +1,5 @@
 // MODELS
-import { postMachine } from "../../models";
+import { postMachine } from "../../models/index.js";
 
 // SCHEMA
 import { History } from "../../schema/historyEntry.schema.js";

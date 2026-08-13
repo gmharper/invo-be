@@ -1,5 +1,5 @@
 // MODELS
-import { patchWorkflow } from "../../models";
+import { patchWorkflow } from "../../models/index.js";
 
 // SCHEMA
 import { WorkflowZSchema } from "../../schema/workflow.schema.js";

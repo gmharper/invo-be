@@ -1,5 +1,5 @@
 // MODELS
-import { getMachines, getMachine } from "../../models";
+import { getMachines, getMachine } from "../../models/index.js";
 
 // SCHEMA
 import { queryValidationSchema } from "../../schema/queryValidation.schema.js";

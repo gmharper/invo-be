@@ -1,5 +1,5 @@
 // MODELS
-import { getWorkflows, getWorkflow } from "../../models";
+import { getWorkflows, getWorkflow } from "../../models/index.js";
 
 // SCHEMA
 import { queryValidationSchema } from "../../schema/queryValidation.schema.js";

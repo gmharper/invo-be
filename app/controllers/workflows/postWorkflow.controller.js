@@ -1,5 +1,5 @@
 // MODELS
-import { postWorkflow } from "../../models";
+import { postWorkflow } from "../../models/index.js";
 
 // SCHEMA
 import { History } from "../../schema/historyEntry.schema.js";

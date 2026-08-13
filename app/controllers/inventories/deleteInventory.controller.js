@@ -1,5 +1,5 @@
 // MODELS
-import { deleteInventory } from "../../models";
+import { deleteInventory } from "../../models/index.js";
 
 // SCHEMA
 import { Comment } from "../../schema/commentEntry.schema.js";

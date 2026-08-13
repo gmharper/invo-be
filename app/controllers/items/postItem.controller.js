@@ -1,5 +1,5 @@
 // MODELS
-import { postItem } from "../../models";
+import { postItem } from "../../models/index.js";
 
 // SCHEMA
 import { ObjectId } from "mongodb";

@@ -1,5 +1,5 @@
 // MODELS
-import { patchMachine } from "../../models";
+import { patchMachine } from "../../models/index.js";
 
 //SCHEMA
 import { MachineZSchema } from "../../schema/machine.schema.js";

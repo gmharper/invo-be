@@ -1,5 +1,5 @@
 // MODELS
-import { deleteWorkflow } from "../../models";
+import { deleteWorkflow } from "../../models/index.js";
 
 // SCHEMA
 import { Comment } from "../../schema/commentEntry.schema.js";

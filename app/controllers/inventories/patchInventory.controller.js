@@ -1,5 +1,5 @@
 // MODELS
-import { patchInventory } from "../../models";
+import { patchInventory } from "../../models/index.js";
 
 // SCHEMA
 import { InventoryZSchema } from "../../schema/inventory.schema.js";
