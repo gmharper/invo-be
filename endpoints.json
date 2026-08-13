@@ -1,6 +1,6 @@
 {
   "GET /api": {
-    "description": "serves up a json representation of all the available endpoints of the api"
+    "description": "Serves up a json representation of all the available endpoints of the api."
   },
 
   "/api/users": {
@@ -18,13 +18,51 @@
   },
   "/api/users/:userId": {
     "GET": {
-      "description": "Returns a user by their id."
+      "description": "Returns a user by their mongodb _id.",
+      "example_response": {
+        "_id": "ObjectId",
+        "username": "string",
+        "name": "string",
+        "description": "string",
+        "icon": "string|null",
+        "color1": "string|null",
+        "color2": "string|null",
+        "links": "[link]",
+        "savedUrls": "[savedUrl]",
+        "dashboardTabs": "[ObjectId]",
+        "inventories": "[ObjectId]",
+        "items": "[ObjectId]",
+        "machines": "[ObjectId]",
+        "workflows": "[ObjectId]",
+        "linkedInventories": "[ObjectId]",
+        "linkedItems": "[ObjectId]",
+        "linkedMachines": "[ObjectId]",
+        "linkedWorkflows": "[ObjectId]",
+        "favourites": {
+          "inventories": "[ObjectId]",
+          "items": "[ObjectId]",
+          "machines": "[ObjectId]",
+          "workflows": "[ObjectId]"
+        },
+        "history": "ObjectId",
+        "createdAt": "date",
+        "updatedAt": "date"
+      },
+      "link": {
+        "type": "string",
+        "value": "string"
+      },
+      "saved_url": {
+        "url": "string",
+        "name": "string",
+        "description": "string"
+      }
     },
     "PATCH": {
-      "description": "Patches/Updates a user by their id from a provided data object containing keys that exist on the user class."
+      "description": "Patches/Updates a user by their mongodb _id from a provided data object containing valid keys that exist on the user class."
     },
     "DELETE": {
-      "description": "Deletes a user by their id from the users collection."
+      "description": "Deletes a user by their mongodb _id from the users collection."
     }
   },
 
@@ -44,13 +82,35 @@
   "/api/inventories/:inventoryId": {
     "GET": {
       "description": "Returns an inventory by its id.",
-      "example_response": {}
+      "example_response": {
+        "_id": "ObjectId",
+        "name": "string",
+        "description": "string|null",
+        "path": "string|null",
+        "icon": "string|null",
+        "color": "string|null",
+        "columns": "number",
+        "slots": "[slot]",
+        "permissions": "number",
+        "collaborators": "[ObjectId]",
+        "linkedFrom": "ObjectId|null",
+        "clonedFrom": "ObjectId|null",
+        "tags": "[string]",
+        "author": "ObjectId",
+        "comments": "[ObjectId]",
+        "history": "ObjectId",
+        "createdAt": "date",
+        "updatedAt": "date"
+      },
+      "slot": {
+        "item": "ObjectId|null"
+      }
     },
     "PATCH": {
-      "description": "Patches/Updates an inventory by its id from a provided data object containing keys that exist on the inventory class."
+      "description": "Patches/Updates an inventory by its mongodb _id from a provided data object containing valid keys that exist on the inventory class."
     },
     "DELETE": {
-      "description": "Deletes an inventory by its id from the inventories collection."
+      "description": "Deletes an inventory by its mongodb _id from the inventories collection."
     }
   },
 
@@ -69,14 +129,36 @@
   },
   "/api/items/:itemId": {
     "GET": {
-      "description": "Returns an item by its id.",
-      "example_response": {}
+      "description": "Returns an item by its mongodb _id.",
+      "example_response": {
+        "_id": "ObjectId",
+        "name": "string",
+        "description": "string|null",
+        "icon": "string|null",
+        "color": "string|null",
+        "path": "string|null",
+        "type": "string",
+        "progress": "number",
+        "permissions": "number",
+        "priority": "number",
+        "linkedFrom": "ObjectId|null",
+        "clonedFrom": "ObjectId|null",
+        "text": "ObjectId|null",
+        "json": "ObjectId|null",
+        "table": "ObjectId|null",
+        "tags": "[string]",
+        "author": "ObjectId",
+        "comments": "[ObjectId]",
+        "history": "ObjectId",
+        "createdAt": "date",
+        "updatedAt": "date"
+      }
     },
     "PATCH": {
-      "description": "Patches/Updates an item by its id from a provided data object containing keys that exist on the item class."
+      "description": "Patches/Updates an item by its mongodb _id from a provided data object containing valid keys that exist on the item class."
     },
     "DELETE": {
-      "description": "Deletes an item by its id from the items collection."
+      "description": "Deletes an item by its mongodb _id from the items collection."
     }
   },
 
@@ -95,14 +177,24 @@
   },
   "/api/machines/:machineId": {
     "GET": {
-      "description": "Returns a machine by its id.",
-      "example_response": {}
+      "description": "Returns a machine by its mongodb _id.",
+      "example_response": {
+        "_id": "ObjectId",
+        "name": "string",
+        "description": "string|null",
+        "tags": "[string]",
+        "author": "ObjectId",
+        "comments": "[ObjectId]",
+        "history": "ObjectId",
+        "createdAt": "date",
+        "updatedAt": "date"
+      }
     },
     "PATCH": {
-      "description": "Patches/Updates a machine by its id from a provided data object containing keys that exist on the machine class."
+      "description": "Patches/Updates a machine by its mongodb _id from a provided data object containing valid keys that exist on the machine class."
     },
     "DELETE": {
-      "description": "Deletes a machine by its id from the machines collection."
+      "description": "Deletes a machine by its mongodb _id from the machines collection."
     }
   },
 
@@ -123,13 +215,131 @@
   "/api/workflows/:workflowId": {
     "GET": {
       "description": "Returns a workflow by its id.",
-      "example_response": {}
+      "example_response": {
+        "_id": "ObjectId",
+        "name": "string",
+        "description": "string|null",
+        "color": "string|null",
+        "nodes": "[node]",
+        "tags": "[string]",
+        "author": "ObjectId",
+        "comments": "[ObjectId]",
+        "history": "ObjectId",
+        "createdAt": "date",
+        "updatedAt": "date"
+      },
+      "node": {
+        "id": "string",
+        "name": "string",
+        "operation": "string",
+        "type": "string",
+        "position": { "x":"number", "y":"number" }
+      }
     },
     "PATCH": {
-      "description": "Patches/Updates a workflow by its id from a provided data object containing keys that exist on the workflow class."
+      "description": "Patches/Updates a workflow by its mongodb _id from a provided data object containing valid keys that exist on the workflow class."
     },
     "DELETE": {
-      "description": "Deletes a workflow by its id from the workflows collection."
+      "description": "Deletes a workflow by its mongodb _id from the workflows collection."
+    }
+  },
+
+  "/api/preferences/:id": {
+    "GET": {
+      "description": "Returns a user's preferences by its mongodb _id (NOT the user's _id).",
+      "example_response": {
+        "_id": "ObjectId",
+        "refId": "ObjectId",
+        "theme": "dark|light",
+        "keepLoggedIn": "boolean",
+        "sendEmailNotifications": "boolean",
+        "showEmail": "boolean",
+        "showPhone": "boolean",
+        "createdAt": "date",
+        "updatedAt": "date"
+      }
+    },
+    "PATCH": {
+      "description": "Patches/updates a user's preferences by its mongodb _id from a provided data object containing valid keys that exist on the preferences class."
+    }
+  },
+
+  "/api/comments": {
+    "GET": {},
+    "POST": {}
+  },
+  "/api/comments/:id": {
+    "GET": {
+      "description": "Returns a comment by its mongodb _id.",
+      "example_response": {
+        "_id": "ObjectId",
+        "refId": "ObjectId",
+        "type": "string",
+        "body": "string",
+        "replies": "[string]",
+        "author": "ObjectId",
+        "createdAt": "date",
+        "updatedAt": "date"
+      }
+    },
+    "PATCH": {
+      "description": "Patches/updates a comment by its mongodb _id from a provided data object containing valid keys that exist on the comment class."
+    },
+    "DELETE": {
+      "description": "Deletes a comment by its mongodb _id from the comments collection."
+    }
+  },
+
+  "/api/history/:id": {
+    "GET": {
+      "description": "Returns a history entry by its mongodb _id",
+      "example_response": {
+        "_id": "ObjectId",
+        "refId": "ObjectId",
+        "type": "string",
+        "entries": "[HistoryEntry]",
+        "createdAt": "date",
+        "updatedAt": "date"
+      },
+      "history_entry": {
+        "author": "ObjectId",
+        "action": "string",
+        "body": "string",
+        "previous": "string",
+        "new": "string",
+        "timestamp": "date"
+      }
+    },
+    "PATCH": {}
+  },
+
+  "/api/dashboardTabs": {
+    "POST": {}
+  },
+  "/api/dashboardTabs/:id": {
+    "GET": {
+      "description": "Returns a dashboard tab by its mongodb _id",
+      "example_response": {
+        "_id": "ObjectId",
+        "name": "string",
+        "description": "string|null",
+        "panels": "[panel]",
+        "history": "ObjectId",
+        "author": "ObjectId",
+        "createdAt": "date",
+        "updatedAt": "date"
+      },
+      "panel": {
+        "id": "string",
+        "name": "string",
+        "type": "string"
+      }
+    },
+    "PATCH": {
+      "description": "Patches/updates a dashboard tab by its mongodb _id from a provided data object that contains valid keys."
+    },
+    "DELETE": {
+      "description": "Deletes a dashboard tab by its mongodb _id from the dashboardTabs collection."
     }
   }
 }
