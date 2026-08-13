@@ -1,6 +1,7 @@
 import mongoose, { model, Schema } from "mongoose";
 import { z } from "zod";
 import { ObjectIdSchema, UnixSchema } from "./z.js";
+import { ObjectId } from "mongodb";
 
 // ZOD
 export const InventoryZSchema = z.object({
@@ -22,22 +23,23 @@ export const InventoryZSchema = z.object({
 
     tags: z.array(z.string()).optional(),
     author: ObjectIdSchema.optional(),
-    history: z.array(ObjectIdSchema).optional(),
-    createdAt: UnixSchema.optional(),
-    updatedAt: UnixSchema.optional()
+    comments: z.array(ObjectIdSchema).optional(),
+    history: ObjectIdSchema.optional(),
+    createdAt: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().default(new Date())
 });
 
 // MONGOOSE
 export const InventoryMSchema = new mongoose.Schema({
     _id: { type:Schema.Types.ObjectId, required:true },
-    name: String,
-    description: { type:String, default:null },
-    path: { type:String, default:null },
-    icon: { type:String, default:null },
+    name: { type:String, required:true },
+    description: String,
+    path: String,
+    icon: String,
     color: String,
 
     columns: Number,
-    slots: [{ "item":{ type:String, default:null }}],
+    slots: { type:[{ "item":{ type:String, default:null }}], required:true },
 
     permissions: Number,
     collaborators: [{ type:Schema.Types.ObjectId, ref:"User" }],
@@ -45,11 +47,12 @@ export const InventoryMSchema = new mongoose.Schema({
     linkedFrom: { type:Schema.Types.ObjectId, ref:"Inventory" },
     clonedFrom: { type:Schema.Types.ObjectId, ref:"Inventory" },
 
-    tags: [String],
-    author: { type:Schema.Types.ObjectId, ref:"User" },
-    history: [{ type:Schema.Types.ObjectId, ref:"HistoryEntry" }],
-    createdAt: { type:Number, default: () => Math.floor(Date.now() / 1000) },
-    updatedAt: { type:Number, default: () => Math.floor(Date.now() / 1000) }
+    tags: { type:[String] },
+    author: { type:Schema.Types.ObjectId, ref:"User", required:true },
+    comments: [{ type:Schema.Types.ObjectId, ref:"Comment" }],
+    history: { type:Schema.Types.ObjectId, ref:"History", required:true },
+    createdAt: { type:Date, required:true },
+    updatedAt: { type:Date, default: new Date(), required:true }
 });
 
 export const Inventory = model("Inventory", InventoryMSchema);

@@ -1,6 +1,7 @@
 import mongoose, { model, Schema } from "mongoose";
 import { z } from "zod";
 import { ObjectIdSchema, UnixSchema } from "./z.js";
+import { ObjectId } from "mongodb";
 
 // ZOD SCHEMA
 export const ItemZSchema = z.object({
@@ -15,18 +16,20 @@ export const ItemZSchema = z.object({
     progress: z.number().optional(),
     permissions: z.number().optional(),
     priority: z.number().optional(),
+
+    linkedFrom: ObjectIdSchema.nullable().optional(),
+    clonedFrom: ObjectIdSchema.nullable().optional(),
     
     text: ObjectIdSchema.nullable().optional(),
     json: ObjectIdSchema.nullable().optional(),
     table: ObjectIdSchema.nullable().optional(),
 
-    comments: z.array(ObjectIdSchema).optional(),
-    
     tags: z.array(z.string()).optional(),
     author: ObjectIdSchema.optional(),
-    history: z.array(ObjectIdSchema).optional(),
-    createdAt: UnixSchema.optional(),
-    updatedAt: UnixSchema.optional()
+    comments: z.array(ObjectIdSchema).optional(),
+    history: ObjectIdSchema.optional(),
+    createdAt: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().default(new Date())
 });
 
 // MONGOOSE SCHEMA
@@ -46,13 +49,16 @@ export const ItemMSchema = new mongoose.Schema({
     text: { type:Schema.Types.ObjectId, ref:"ItemText", default:null },
     json: { type:Schema.Types.ObjectId, ref:"ItemJson", default:null },
     table: { type:Schema.Types.ObjectId, ref:"ItemTable", default:null },
+
+    linkedFrom: { type:Schema.Types.ObjectId, ref:"Item" },
+    clonedFrom: { type:Schema.Types.ObjectId, ref:"Item" },
     
     tags: [String],
-    author: { type:Schema.Types.ObjectId, ref:"User" },
-    comments: [{ type:Schema.Types.ObjectId, ref:"CommentEntry"}],
-    history: [{ type:Schema.Types.ObjectId, ref:"HistoryEntry"}],
-    createdAt: { type:Number, default: () => Math.floor(Date.now() / 1000) },
-    updatedAt: { type:Number, default: () => Math.floor(Date.now() / 1000) }
+    author: { type:Schema.Types.ObjectId, ref:"User", required:true },
+    comments: [{ type:Schema.Types.ObjectId, ref:"Comment" }],
+    history: { type:Schema.Types.ObjectId, ref:"History", required:true },
+    createdAt: { type:Date, required:true },
+    updatedAt: { type:Date, default: new Date(), required:true }
 });
 
 export const Item = model("Item", ItemMSchema);

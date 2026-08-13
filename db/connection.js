@@ -4,10 +4,10 @@ import path from "path";
 import dotenv from "dotenv";
 
 const __dirname = path.resolve();
-const ENV = "production";
+const ENV = "test";
 
 dotenv.config({ 
-  path: path.join(__dirname, `.env.${ENV}`)
+  path: path.join(process.cwd(), `.env.${ENV}`)
 });
 
 const mongoConfig = {
@@ -15,7 +15,7 @@ const mongoConfig = {
 };
 
 const client = new MongoClient(process.env.MONGODB_URI, mongoConfig);
-
+//mongoose.set("debug", true);
 
 let db;
 
@@ -23,7 +23,6 @@ export async function connectDB() {
   if (!db) {
     await client.connect();
 
-    
     db = client.db(); // uses DB name from the URI
   }
   // CONNECT MONGOOSE

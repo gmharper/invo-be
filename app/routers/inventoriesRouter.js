@@ -8,16 +8,25 @@ import {
   postInventoryController, 
   patchInventoryController, 
   deleteInventoryController 
-} from "../controllers/inventories.controller.js";
+} from "../controllers/inventories/index.js";
+
+import { getCommentsController } from "../controllers/comments.controller.js";
+import { getHistoryByRef } from "../controllers/history.controller.js";
 
 inventoriesRouter.route("/")
   .get(getInventoriesController)
   .post(postInventoryController)
-  .patch((req, res) => { res.status(200).send("This endpoint does nothing!") })
-  .delete((req, res) => { res.status(200).send("This endpoint does nothing!") })
+  .patch((req, res) => { res.status(405).send("This endpoint does nothing!") })
+  .delete((req, res) => { res.status(405).send("This endpoint does nothing!") })
 
 inventoriesRouter.route("/:inventoryId")
   .get(getInventoryController)
-  .post(() => { res.status(200).send("This endpoint does nothing! POST to the /inventories endpoint or use PATCH instead") })
+  .post((req, res) => { res.status(405).send("This endpoint does nothing! POST to the /inventories endpoint or use PATCH instead") })
   .patch(patchInventoryController)
   .delete(deleteInventoryController);
+
+
+
+
+
+

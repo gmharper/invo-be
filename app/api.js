@@ -5,7 +5,7 @@ import cors from 'cors';
 import apiRouter from "./routers/apiRouter.js";
 import connectDB from "../db/connection.js";
 
-app.use(express.json())
+app.use(express.json({ strict:false }))
 app.use(cors());
 app.use("/api", apiRouter);
 
@@ -24,10 +24,12 @@ app.use((err, req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  console.log(err);
-  res.status(500).send({ msg: "Internal server error" });
+  res.status(500).send({ 
+    msg: "Internal server error",
+    error: err
+  });
 });
 
-connectDB();
+const db = connectDB();
 
-export default app;
+export { app, db };

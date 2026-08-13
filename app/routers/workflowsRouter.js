@@ -8,16 +8,19 @@ import {
     postWorkflowController, 
     patchWorkflowController, 
     deleteWorkflowController 
-} from "../controllers/workflows.controller.js";
+} from "../controllers/workflows/index.js";
+
+import { getCommentsController } from "../controllers/comments.controller.js";
+import { getHistoryByRef } from "../controllers/history.controller.js";
 
 workflowsRouter.route("/")
   .get(getWorkflowsController)
   .post(postWorkflowController)
-  .patch((req, res) => { res.status(200).send("This endpoint does nothing!") })
-  .delete((req, res) => { res.status(200).send("This endpoint does nothing!") })
+  .patch((req, res) => { res.status(405).send("This endpoint does nothing!") })
+  .delete((req, res) => { res.status(405).send("This endpoint does nothing!") })
 
-workflowsRouter.route("/:machineId")
+workflowsRouter.route("/:workflowId")
   .get(getWorkflowController)
-  .post(() => { res.status(200).send("This endpoint does nothing! POST to the /workflows endpoint or use PATCH instead") })
+  .post((req, res) => { res.status(405).send("This endpoint does nothing! POST to the /workflows endpoint or use PATCH instead") })
   .patch(patchWorkflowController)
   .delete(deleteWorkflowController);

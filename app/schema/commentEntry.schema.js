@@ -3,31 +3,29 @@ import mongoose, { model, Schema } from "mongoose";
 import { ObjectIdSchema, UnixSchema } from "./z.js";
 
 // ZOD
-export const CommentEntryZSchema = z.object({
+export const CommentZSchema = z.object({
     _id: ObjectIdSchema.optional(),
+    refId: ObjectIdSchema.optional(),
     type: z.string().optional(),
     body: z.string().optional(),
+    replies: z.array(ObjectIdSchema).optional(),
 
     author: ObjectIdSchema.optional(),
-    createdAt: UnixSchema.optional(),
-    updatedAt: UnixSchema.optional()
+    createdAt: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().default(new Date())
 });
-
-export class CommentEntryClass {
-    constructor(input) {
-        const props = CommentEntryZSchema.parse(input);
-    };
-};
 
 // MONGOOSE
-export const CommentEntryMSchema = new mongoose.Schema({
+export const CommentMSchema = new mongoose.Schema({
     _id: { type:Schema.Types.ObjectId, required:true },
-    type: String,
+    refId: { type:Schema.Types.ObjectId, required:true },
+    type: { type:String, required:true },
     body: String,
+    replies: [{ type:Schema.Types.ObjectId, ref:"Comment" }],
 
-    author: { type:Schema.Types.ObjectId, ref:"User" },
-    createdAt: { type:Number, default: () => Math.floor(Date.now() / 1000) },
-    updatedAt: { type:Number, default: () => Math.floor(Date.now() / 1000) }
+    author: { type:Schema.Types.ObjectId, ref:"User", required:true },
+    createdAt: { type:Date, required:true },
+    updatedAt: { type:Date, default: new Date(), required:true }
 });
 
-export const CommentEntry = model("CommentEntry", CommentEntryMSchema, "commentEntries");
+export const Comment = model("Comment", CommentMSchema, "comments");

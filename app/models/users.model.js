@@ -1,3 +1,4 @@
+import { db } from '../api.js';
 import { User } from '../schema/user.schema.js';
 
 // WE MUST delete certain keys from the user object before returning for example:
@@ -21,30 +22,34 @@ export async function getUsers(props) {
 };
 
 export async function getUser(id) {
-    const user = User.find({ _id:id })
+    const user = await User.findOne({ _id:id })
         .lean()
 
     return user;
 };
 
 export async function postUser(user) {
-    const result = User.insertOne({ ...user })
+    const result = await User.insertOne({ ...user });
 
-    return result;
+    return result.toObject();
 };
 
-export async function patchUser(id, user) {
-    const result = User.updateOne({ _id:id }, { $set:user })
+export async function patchUser(id, patch) {
+    const user = await User.findOneAndUpdate(
+        { _id:id }, 
+        { $set:{...patch} }, 
+        { returnDocument:'after' }
+    );
 
-    return result;
-}
+    return user;
+};
 
 export async function clearUser(id) {
 
 };
 
 export async function deleteUser(id) {
-    const result = User.deleteOne({ _id:id })
+    const user = await User.findOneAndDelete({ _id:id });
 
-    return result;
+    return user;
 };

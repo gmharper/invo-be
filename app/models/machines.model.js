@@ -6,12 +6,15 @@ import { Machine } from '../schema/machine.schema.js';
 export async function getMachines(props) {
     const total = await Machine.countDocuments();
 
-    const { sort, order, limit, p } = props;
+    const { sort, order, limit, p, author } = props;
 
-    const machines = await Machine.find()
-        .sort({ [sort]:order })
-        .skip(p * limit).limit(limit)
-        .lean()
+    let query = Machine.find(author ? { author } : {}).sort({ [sort]:order });
+
+    if (!author) {
+        query = query.skip(p * limit).limit(limit)
+    };
+
+    const machines = await query.lean()
 
     return {
         total,
@@ -21,22 +24,26 @@ export async function getMachines(props) {
 };
 
 export async function getMachine(id) {
-    const machine = Machine.find({ _id:id })
+    const machine = await Machine.findOne({ _id:id })
         .lean()
 
     return machine;
 };
 
 export async function postMachine(machine) {
-    const result = Machine.insertOne({ ...machine })
+    const result = await Machine.insertOne({ ...machine })
 
-    return result;
+    return result.toObject();
 };
 
-export async function patchMachine(id, machine) {
-    const result = Machine.updateOne({ _id:id }, { $set:machine })
+export async function patchMachine(id, patch) {
+    const machine = await Machine.findOneAndUpdate(
+        { _id:id }, 
+        { $set:{...patch} }, 
+        { returnDocument:'after' }
+    )
 
-    return result;
+    return machine;
 }
 
 export async function clearMachine(id) {
@@ -44,7 +51,7 @@ export async function clearMachine(id) {
 };
 
 export async function deleteMachine(id) {
-    const machine = Machine.deleteOne({ _id:id })
+    const machine = await Machine.findOneAndDelete({ _id:id });
 
     return machine;
 };

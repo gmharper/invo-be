@@ -3,12 +3,15 @@ import { Workflow } from '../schema/workflow.schema.js';
 export async function getWorkflows(props) {
     const total = await Workflow.countDocuments();
 
-    const { sort, order, limit, p } = props;
+    const { sort, order, limit, p, author } = props;
 
-    const workflows = await Workflow.find()
-        .sort({ [sort]:order })
-        .skip(p * limit).limit(limit)
-        .lean()
+    let query = Workflow.find(author ? { author } : {}).sort({ [sort]:order });
+
+    if (!author) {
+        query = query.skip(p * limit).limit(limit)
+    };
+
+    const workflows = await query.lean();
 
     return {
         total,
@@ -18,30 +21,34 @@ export async function getWorkflows(props) {
 };
 
 export async function getWorkflow(id) {
-    const workflow = Workflow.find({ _id:id })
+    const workflow = await Workflow.findOne({ _id:id })
         .lean()
 
     return workflow;
 };
 
 export async function postWorkflow(workflow) {
-    const result = Workflow.insertOne({ ...workflow })
+    const result = await Workflow.insertOne({ ...workflow })
 
-    return result;
+    return result.toObject();
 };
 
-export async function patchWorkflow(id, workflow) {
-    const result = Workflow.updateOne({ _id:id }, { $set:workflow })
+export async function patchWorkflow(id, patch) {
+    const workflow = await Workflow.findOneAndUpdate(
+        { _id:id }, 
+        { $set:{...patch} }, 
+        { returnDocument:'after' }
+    );
 
-    return result;
-}
+    return workflow;
+};
 
 export async function clearWorkflow(id) {
 
 };
 
 export async function deleteWorkflow(id) {
-    const result = Workflow.deleteOne({ _id:id })
+    const workflow = await Workflow.findOneAndDelete({ _id:id })
 
-    return result;
+    return workflow;
 };

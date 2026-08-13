@@ -3,12 +3,15 @@ import { Inventory } from '../schema/inventory.schema.js';
 export async function getInventories(props) {
     const total = await Inventory.countDocuments();
 
-    const { sort, order, limit, p } = props;
+    const { sort, order, limit, p, author } = props;
 
-    const inventories = await Inventory.find()
-        .sort({ [sort]:order })
-        .skip(p * limit).limit(limit)
-        .lean()
+    let query = Inventory.find(author ? { author } : {}).sort({ [sort]:order });
+
+    if (!author) {
+        query = query.skip(p * limit).limit(limit)
+    };
+
+    const inventories = await query.lean();
 
     return {
         total,
@@ -18,30 +21,37 @@ export async function getInventories(props) {
 };
 
 export async function getInventory(id) {
-    const inventory = Inventory.find({ _id:id })
-        .lean()
+    const inventory = await Inventory.findOne({ _id:id })
+        .lean();
 
     return inventory;
 };
 
 export async function postInventory(inventory) {
-    const result = Inventory.insertOne({ ...inventory })
-
-    return result
+    try {
+        const result = await Inventory.insertOne({ ...inventory });
+        return result.toObject();
+    } catch (err) {
+        console.error(err);
+    };
 };
 
-export async function patchInventory(id, inventory) {
-    const result = Inventory.updateOne({ _id:id }, { $set:inventory })
+export async function patchInventory(id, patch) {
+    const inventory = await Inventory.findOneAndUpdate(
+        { _id:id }, 
+        { $set:{...patch} }, 
+        { returnDocument:'after' }
+    );
 
-    return result;
-}
+    return inventory;
+};
 
 export async function clearInventory(id) {
 
 };
 
 export async function deleteInventory(id) {
-    const result = Inventory.deleteOne({ _id:id })
+    const inventory = await Inventory.findOneAndDelete({ _id:id });
 
-    return result;
+    return inventory;
 };
