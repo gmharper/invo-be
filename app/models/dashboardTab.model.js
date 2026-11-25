@@ -1,6 +1,6 @@
 import { DashboardTab } from "../schema/dashboardTab.schema.js";
 
-export async function getDashboardTabs() {
+export async function getDashboardTabs(props) {
     const total = await DashboardTab.countDocuments();
 
     const { sort, order, limit, p, author } = props;
