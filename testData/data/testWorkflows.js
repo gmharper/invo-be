@@ -1,4 +1,4 @@
-import { workflowIds, userIds } from "./ids";
+import { workflowIds, userIds } from "./ids.js";
 
 export const testWorkflows = [
     {

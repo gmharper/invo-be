@@ -1,8 +1,7 @@
 import { ObjectId } from "mongodb";
-import { generateRandomItems } from "./getRandomItem";
+import { generateRandomItems } from "./getRandomItem.js";
 
-import { userIds } from "./ids";
-import { itemIds } from "./ids";
+import { userIds, itemIds } from "./ids.js";
 
 const defaultItems = [
     {

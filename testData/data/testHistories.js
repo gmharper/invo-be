@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { inventoryIds, historyIds } from "./ids";
+import { inventoryIds, historyIds } from "./ids.js";
 
 export const testHistories = [
     {

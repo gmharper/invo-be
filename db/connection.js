@@ -1,10 +1,10 @@
 import { MongoClient } from "mongodb";
 import mongoose from "mongoose";
 import path from "path";
-import dotenv from "dotenv";
+import dotenv from "dotenv"
 
 const __dirname = path.resolve();
-const ENV = "test";
+const ENV = "production";
 
 dotenv.config({ 
   path: path.join(process.cwd(), `.env.${ENV}`)

@@ -57,3 +57,5 @@ export async function reseed() {
     await seedData("userPreferences", testUserPreferences);
     await seedData("dashboardTabs", testDashboardTabs);
 };
+
+reseed()

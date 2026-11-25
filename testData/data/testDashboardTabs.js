@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { dashboardTabIds, userIds } from "./ids";
+import { dashboardTabIds, userIds } from "./ids.js";
 
 export const testDashboardTabs = [
     {

@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 
-import { userIds } from "./ids";
+import { userIds } from "./ids.js";
 
 // Random helpers
 const randomHexColor = () =>
