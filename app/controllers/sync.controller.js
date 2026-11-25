@@ -1,4 +1,4 @@
-import { dispatchCommand } from "../models/sync.model";
+import { dispatchCommand } from "../models/sync.model.js";
 
 export async function postSyncController(req, res, next) {
     const { commands, clientVersion, sessionId } = req.body;
