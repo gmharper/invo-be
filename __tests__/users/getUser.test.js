@@ -63,10 +63,10 @@ describe("Bad request GET /api/users?sort=banana", () => {
             .get('/api/users?sort=banana')
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid sort query")
+                expect(res.body.reason).toEqual("Invalid sort query.")
             })
     })
-})
+});
 
 describe("Bad request: GET /api/users/:userId", () => {
     test("400: invalid user ID", () => {
@@ -74,7 +74,7 @@ describe("Bad request: GET /api/users/:userId", () => {
             .get(`/api/users/yoda`)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid user ID")
+                expect(res.body.reason).toEqual("Invalid user ID.")
             })
     })
-})
+});

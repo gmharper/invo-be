@@ -52,7 +52,7 @@ describe("Bad request PATCH /api/machines/:machineId", () => {
             .send(patch)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid machine ID")
+                expect(res.body.reason).toEqual("Invalid machine ID.")
             })
     });
 

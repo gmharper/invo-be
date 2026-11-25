@@ -14,6 +14,8 @@ import { commentsRouter } from "./commentsRouter.js";
 import { preferencesRouter } from "./preferencesRouter.js";
 import { dashboardTabsRouter } from "./dashboardTabsRouter.js";
 
+import { syncRouter } from "./syncRouter.js";
+
 apiRouter.use("/users", usersRouter);
 apiRouter.use("/inventories", inventoriesRouter);
 apiRouter.use("/items", itemsRouter);
@@ -24,6 +26,9 @@ apiRouter.use("/history", historiesRouter);
 apiRouter.use("/comments", commentsRouter);
 apiRouter.use("/preferences", preferencesRouter);
 apiRouter.use("/dashboardTabs", dashboardTabsRouter);
+
+apiRouter.use("/sync", syncRouter);
+
 apiRouter.get("/", getApi);
 
 export default apiRouter;

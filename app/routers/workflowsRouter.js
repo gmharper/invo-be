@@ -2,16 +2,13 @@ import express from "express";
 
 export const workflowsRouter = express.Router();
 
-import { 
-    getWorkflowsController, 
-    getWorkflowController, 
-    postWorkflowController, 
-    patchWorkflowController, 
-    deleteWorkflowController 
-} from "../controllers/workflows/index.js";
-
-import { getCommentsController } from "../controllers/comments.controller.js";
-import { getHistoryByRef } from "../controllers/history.controller.js";
+import {
+  getWorkflowsController,
+  getWorkflowController,
+  postWorkflowController,
+  patchWorkflowController,
+  deleteWorkflowController
+} from "../controllers/workflow.controller.js";
 
 workflowsRouter.route("/")
   .get(getWorkflowsController)

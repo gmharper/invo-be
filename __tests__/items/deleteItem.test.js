@@ -16,10 +16,10 @@ describe("DELETE /api/items", () => {
 
 ///////////////////////////////////////
 describe("DELETE /api/item/:itemId", () => {
-    test("200: deletes an item by its id", () => {
+    test("201: deletes an item by its id", () => {
         return request(app)
             .delete(`/api/items/6a75f0845a9a13e26ba4931b`)
-            .expect(200)
+            .expect(201)
             .then((res) => {
                 expect(res.body.msg).toEqual("Item deleted successfully!");
             });

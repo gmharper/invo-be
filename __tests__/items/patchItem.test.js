@@ -52,7 +52,7 @@ describe("Bad request PATCH /api/items/:itemId", () => {
             .send(patch)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid item ID")
+                expect(res.body.reason).toEqual("Invalid item ID.");
             })
     });
 

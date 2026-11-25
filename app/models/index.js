@@ -1,22 +1,22 @@
 import {
     getUsers, getUser, postUser, patchUser, clearUser, deleteUser
-} from "./users.model.js";
+} from "./user.model.js";
 
 import {
     getInventories, getInventory, postInventory, patchInventory, clearInventory, deleteInventory
-} from "./inventories.model.js";
+} from "./inventory.model.js";
 
 import {
     getItems, getItem, postItem, patchItem, clearItem, deleteItem
-} from "./items.model.js";
+} from "./item.model.js";
 
 import {
     getMachines, getMachine, postMachine, patchMachine, clearMachine, deleteMachine
-} from "./machines.model.js";
+} from "./machine.model.js";
 
 import {
     getWorkflows, getWorkflow, postWorkflow, patchWorkflow, clearWorkflow, deleteWorkflow
-} from "./workflows.model.js";
+} from "./workflow.model.js";
 
 
 export {

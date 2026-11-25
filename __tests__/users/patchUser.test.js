@@ -52,7 +52,7 @@ describe("Bad request PATCH /api/users/:userId", () => {
             .send(patch)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid user ID")
+                expect(res.body.reason).toEqual("Invalid user ID.")
             })
     });
 

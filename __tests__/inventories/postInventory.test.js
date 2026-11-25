@@ -13,8 +13,8 @@ describe("POST /api/inventories", () => {
         _id: new ObjectId(),
         name: "New Inventory",
         author: new ObjectId(),
-        createdAt: Date.now(),
-        updatedAt: Date.now()
+        createdAt: new Date(),
+        updatedAt: new Date()
     };
 
     test("200: posts a new inventory", () => {

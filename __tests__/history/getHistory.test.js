@@ -35,6 +35,9 @@ describe("GET bad requests", () => {
         return request(app)
             .get('/api/history/inventory1_history')
             .expect(400)
+            .then((res) => {
+                expect(res.body.reason).toEqual("Invalid history ID.");
+            })
     });
 
     test("404: history Id that does not exist", () => {

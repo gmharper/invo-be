@@ -34,6 +34,9 @@ describe("GET bad requests", () => {
         return request(app)
             .get('/api/preferences/yodas_preferences')
             .expect(400)
+            .then((res) => {
+                expect(res.body.reason).toEqual("Invalid preferences ID.");
+            })
     });
 
     test("404: Id that does not exist", () => {

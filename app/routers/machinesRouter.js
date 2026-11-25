@@ -2,16 +2,13 @@ import express from "express";
 
 export const machinesRouter = express.Router();
 
-import { 
-    getMachinesController, 
-    getMachineController, 
-    postMachineController, 
-    patchMachineController, 
-    deleteMachineController 
-} from "../controllers/machines/index.js";
-
-import { getCommentsController } from "../controllers/comments.controller.js";
-import { getHistoryByRef } from "../controllers/history.controller.js";
+import {
+  getMachinesController,
+  getMachineController,
+  postMachineController,
+  patchMachineController,
+  deleteMachineController
+} from "../controllers/machine.controller.js";
 
 machinesRouter.route("/")
   .get(getMachinesController)

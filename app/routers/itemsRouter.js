@@ -2,16 +2,13 @@ import express from "express";
 
 export const itemsRouter = express.Router();
 
-import { 
-  getItemsController, 
-  getItemController, 
-  postItemController, 
-  patchItemController, 
-  deleteItemController 
-} from "../controllers/items/index.js";
-
-import { getCommentsController } from "../controllers/comments.controller.js";
-import { getHistoryByRef } from "../controllers/history.controller.js";
+import {
+  getItemsController,
+  getItemController,
+  postItemController,
+  patchItemController,
+  deleteItemController
+} from "../controllers/item.controller.js";
 
 // /items
 itemsRouter.route("/")

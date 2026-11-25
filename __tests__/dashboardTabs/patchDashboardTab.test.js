@@ -51,7 +51,7 @@ describe("Bad request PATCH /api/dashboardTabs/:id", () => {
             .send(patch)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid dashboardTab ID")
+                expect(res.body.reason).toEqual("Invalid dashboard tab ID.")
             })
     });
 

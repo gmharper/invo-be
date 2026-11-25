@@ -12,6 +12,7 @@ export const testUsers = [
         items: [...Object.values(itemIds)],
         machines: [],
         workflows: [],
+        history: new ObjectId(),
         createdAt: new Date(),
         updatedAt: new Date()
     },
@@ -20,6 +21,7 @@ export const testUsers = [
         username: 'bobafett',
         name: 'Boba Fett',
         preferences: userPreferencesIds['boba_fett'],
+        history: new ObjectId(),
         createdAt: new Date(),
         updatedAt: new Date()
     },
@@ -28,6 +30,7 @@ export const testUsers = [
         username: 'darth_maul',
         name: 'Darth Maul',
         preferences: userPreferencesIds['darth_maul'],
+        history: new ObjectId(),
         createdAt: new Date(),
         updatedAt: new Date()
     },
@@ -37,6 +40,7 @@ export const testUsers = [
         name: 'Darth Vader',
         preferences: userPreferencesIds['darth_vader'],
         inventories: [inventoryIds['test_inv_3']],
+        history: new ObjectId(),
         createdAt: new Date(),
         updatedAt: new Date()
     },
@@ -45,6 +49,7 @@ export const testUsers = [
         username: 'jarjarOfficial',
         name: 'Jar-Jar Binks',
         preferences: userPreferencesIds['jar_jar'],
+        history: new ObjectId(),
         createdAt: new Date(),
         updatedAt: new Date()
     },
@@ -54,6 +59,7 @@ export const testUsers = [
         name: 'Yoda',
         preferences: userPreferencesIds['yoda'],
         inventories: [inventoryIds['test_inv_1'], inventoryIds['test_inv_2']],
+        history: new ObjectId(),
         createdAt: new Date(),
         updatedAt: new Date()
     },
@@ -63,6 +69,7 @@ export const testUsers = [
         name: 'Obi-wan Kenobi',
         preferences: userPreferencesIds['obi_wan'],
         inventories: [inventoryIds['test_inv_4'], inventoryIds['test_inv_8']],
+        history: new ObjectId(),
         createdAt: new Date(),
         updatedAt: new Date()
     },
@@ -72,6 +79,7 @@ export const testUsers = [
         name: 'Emperor Palpatine',
         preferences: userPreferencesIds['palpatine'],
         inventories: [inventoryIds['test_inv_6'], inventoryIds['test_inv_7']],
+        history: new ObjectId(),
         createdAt: new Date(),
         updatedAt: new Date()
     },
@@ -81,6 +89,7 @@ export const testUsers = [
         name: 'Anakin Skywalker',
         preferences: userPreferencesIds['anakin'],
         inventories: [inventoryIds['test_inv_5']],
+        history: new ObjectId(),
         createdAt: new Date(),
         updatedAt: new Date()
     }

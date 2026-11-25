@@ -11,7 +11,7 @@ export const UserZSchema = z.object({
     icon: z.string().nullable().optional(),
     color1: z.string().optional(),
     color2: z.string().optional(),
-    email: z.string().email().optional(),
+    email: z.string().optional(),
     alternateEmail: z.string().email().nullable().optional(),
     passwordHash: z.string().optional(),
     phone: z.string().optional(),
@@ -40,6 +40,7 @@ export const UserZSchema = z.object({
     }).optional(),
 
     history: ObjectIdSchema.optional(),
+    comments: z.array(ObjectIdSchema).optional(),
     createdAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().default(new Date())
 });
@@ -58,7 +59,7 @@ export const UserMSchema = new mongoose.Schema({
     phone: { type:String, select:false },
     country: { type:String, select:false },
 
-    preferences: { type:String, ref:'UserPreferences', required:true },
+    preferences: { type:Schema.Types.ObjectId, ref:'UserPreferences', required:true },
     links: [
         { "type":String, "value":String }
     ],

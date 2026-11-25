@@ -1,6 +1,5 @@
-import { jest, describe, test, expect, beforeAll, beforeEach, afterAll } from '@jest/globals';
+import { describe, test, expect } from '@jest/globals';
 import "jest-sorted";
-import axios from "axios";
 import request from "supertest";
 
 import { app } from '../../app/api.js';
@@ -62,7 +61,7 @@ describe("Bad request GET /api/machines?sort=banana", () => {
             .get('/api/machines?sort=banana')
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid sort query")
+                expect(res.body.reason).toEqual("Invalid sort query.")
             })
     })
 })
@@ -73,7 +72,7 @@ describe("GET /api/machines/:machineId", () => {
             .get(`/api/machines/mymachine`)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid machine ID")
+                expect(res.body.reason).toEqual("Invalid machine ID.")
             })
     });
 

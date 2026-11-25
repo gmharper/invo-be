@@ -51,7 +51,7 @@ describe("PATCH Bad requests", () => {
             .send(patch)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid preferences ID")
+                expect(res.body.reason).toEqual("Invalid preferences ID.")
             })
     });
 

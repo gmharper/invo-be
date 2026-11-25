@@ -8,7 +8,7 @@ import {
   postUserController, 
   patchUserController, 
   deleteUserController 
-} from "../controllers/users/index.js";
+} from "../controllers/user.controller.js"
 
 import {
   getUserPreferencesByRef,

@@ -64,6 +64,9 @@ describe("bad requests", () => {
                 timestamp: new Date()
             })
             .expect(400)
+            .then((res) => {
+                expect(res.body.reason).toEqual("Invalid history ID.");
+            })
     });
 
     test("400: invalid send", () => {

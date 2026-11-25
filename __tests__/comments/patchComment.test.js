@@ -52,8 +52,8 @@ describe("Bad request PATCH /api/comments/:commentId", () => {
             .send(patch)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid comment ID")
-            })
+                expect(res.body.reason).toEqual("Invalid comment ID.")
+            });
     });
 
     const bad_patch1 = {

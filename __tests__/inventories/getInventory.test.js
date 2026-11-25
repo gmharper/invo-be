@@ -94,7 +94,7 @@ describe("Bad request GET /api/inventories?sort=banana", () => {
             .get('/api/inventories?sort=banana')
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid sort query")
+                expect(res.body.reason).toEqual("Invalid sort query.")
             })
     })
 });
@@ -105,7 +105,7 @@ describe("Bad request GET /api/inventories/:inventoryId", () => {
             .get(`/api/inventories/myinventory`)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid inventory ID")
+                expect(res.body.reason).toEqual("Invalid inventory ID.")
             })
     });
 

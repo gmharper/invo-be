@@ -52,8 +52,8 @@ describe("Bad request PATCH /api/workflows/:workflowId", () => {
             .send(patch)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid workflow ID")
-            })
+                expect(res.body.reason).toEqual("Invalid workflow ID.")
+            });
     });
 
     const bad_patch1 = {

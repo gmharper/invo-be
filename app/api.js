@@ -28,6 +28,8 @@ app.use((err, req, res, next) => {
     msg: "Internal server error",
     error: err
   });
+
+  console.error(err)
 });
 
 const db = connectDB();

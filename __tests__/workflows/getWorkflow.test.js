@@ -63,7 +63,7 @@ describe("Bad request GET /api/workflows?sort=banana", () => {
             .get('/api/workflows?sort=banana')
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid sort query")
+                expect(res.body.reason).toEqual("Invalid sort query.")
             })
     })
 })
@@ -74,7 +74,7 @@ describe("GET /api/workflows/:workflowId", () => {
             .get(`/api/workflows/myworkflow`)
             .expect(400)
             .then((res) => {
-                expect(res.body.error).toEqual("Invalid workflow ID")
+                expect(res.body.reason).toEqual("Invalid workflow ID.")
             })
     })
 });

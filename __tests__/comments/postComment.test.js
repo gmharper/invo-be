@@ -23,7 +23,7 @@ describe("POST /api/comments", () => {
         return request(app)
             .post(`/api/comments`)
             .send(comment)
-            .expect(200)
+            .expect(201)
             .then((res) => {
                 expect(res.body.comment.body).toEqual("This is a comment.")
             })

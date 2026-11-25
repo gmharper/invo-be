@@ -8,7 +8,7 @@ import {
     postDashboardTabController,
     patchDashboardTabController,
     deleteDashboardTabController
-} from "../controllers/dashboardTabs/index.js";
+} from "../controllers/dashboardTab.controller.js";
 
 dashboardTabsRouter.route("/")
     .get(getDashboardTabsController)

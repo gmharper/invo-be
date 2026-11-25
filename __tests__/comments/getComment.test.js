@@ -107,6 +107,9 @@ describe("GET bad requests", () => {
         return request(app)
             .get('/api/comments/comment1')
             .expect(400)
+            .then((res) => {
+                expect(res.body.reason).toEqual("Invalid comment ID.");
+            })
     });
 
     test("404: comment Id that does not exist", () => {

@@ -23,6 +23,9 @@ describe("GET bad requests", () => {
         return request(app)
             .get('/api/dashboardTabs/tab1')
             .expect(400)
+            .then((res) => {
+                expect(res.body.reason).toEqual("Invalid dashboard tab ID.")
+            })
     });
 
     test("404: dashboardTab Id that does not exist", () => {

@@ -314,7 +314,17 @@
   },
 
   "/api/dashboardTabs": {
-    "POST": {}
+    "GET": {
+      "queries": ["sort", "order", "limit", "p"],
+      "sorts": [],
+      "orders": ["ascending", "asc", "descending", "desc", "1", "-1"],
+      "description": "Returns a list of dashboardTabs sorted and filtered by queries (limit of 60)."
+    },
+    "POST": {
+      "required": ["_id", "name", "author", "createdAt"],
+      "example": {},
+      "description": "Posts a new dashboardTab to the dashboardTabs collection from a provided data object that has the required keys (and which are valid) (extra valid keys may also be provided)."
+    }
   },
   "/api/dashboardTabs/:id": {
     "GET": {

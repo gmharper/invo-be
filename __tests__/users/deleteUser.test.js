@@ -40,6 +40,9 @@ describe("Bad request: DELETE /api/users/:userId", () => {
         return request(app)
             .delete('/api/users/yoda')
             .expect(400)
+            .then((res) => {
+                expect(res.body.reason).toEqual("Invalid user ID.")
+            })
     });
 
     test("404: when deleting a user that doesn't exist", () => {

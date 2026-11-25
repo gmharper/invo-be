@@ -2,16 +2,13 @@ import express from "express";
 
 export const inventoriesRouter = express.Router();
 
-import { 
+import {
   getInventoriesController, 
   getInventoryController, 
   postInventoryController, 
   patchInventoryController, 
-  deleteInventoryController 
-} from "../controllers/inventories/index.js";
-
-import { getCommentsController } from "../controllers/comments.controller.js";
-import { getHistoryByRef } from "../controllers/history.controller.js";
+  deleteInventoryController
+} from "../controllers/inventory.controller.js";
 
 inventoriesRouter.route("/")
   .get(getInventoriesController)
